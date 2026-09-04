@@ -1,6 +1,6 @@
 <script setup>
-  // O aluno deverá implementar a lógica do componente.
-  // import { pedidos } from '@/data/pedidos'
+//import { pedidos } from '@/data/pedidos'
+
 </script>
 
 <template>
@@ -20,26 +20,26 @@
         <span>Pedidos realizados</span>
 
         <!-- O aluno deverá calcular este valor. -->
-        <strong>0</strong>
+        <strong>{{ quantPedidos }}</strong>
       </article>
 
       <article class="summary-card">
         <span>Itens vendidos</span>
 
         <!-- O aluno deverá calcular este valor. -->
-        <strong>0</strong>
+        <strong>{{ quantItens }}</strong>
       </article>
 
       <article class="summary-card">
         <span>Total vendido</span>
 
         <!-- O aluno deverá calcular este valor. -->
-        <strong>R$ 0,00</strong>
+        <strong>{{totalReais}}</strong>
       </article>
     </section>
 
     <section class="card" aria-labelledby="filtro-pedidos">
-      <h2 id="filtro-pedidos">Filtrar pedidos</h2>
+      <h2 id="filtro-pedidos" >Filtrar pedidos</h2>
 
       <div class="filter-container">
         <div class="form-group">

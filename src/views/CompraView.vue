@@ -1,6 +1,52 @@
 <script setup>
-  // import { pedidos } from '@/data/pedidos'
-  // O aluno deverá implementar a lógica do componente.
+import { ref } from 'vue';
+
+const pedidos = ref([
+  {
+    codigo: 'PED-001',
+    cliente: 'Maria da Silva',
+    itens: [
+      {
+        id: 1,
+        produto: 'Tomate',
+        precoUnitario: 8.5,
+        quantidade: 2,
+      },
+      {
+        id: 2,
+        produto: 'Batata',
+        precoUnitario: 6,
+        quantidade: 3,
+      },
+    ],
+  },
+  {
+    codigo: 'PED-002',
+    cliente: 'João Pereira',
+    itens: [
+      {
+        id: 3,
+        produto: 'Banana',
+        precoUnitario: 7.5,
+        quantidade: 2,
+      },
+      {
+        id: 4,
+        produto: 'Maçã',
+        precoUnitario: 12,
+        quantidade: 1,
+      },
+      {
+        id: 5,
+        produto: 'Laranja',
+        precoUnitario: 5.5,
+        quantidade: 4,
+      },
+    ],
+  },
+])
+
+
 </script>
 
 <template>
@@ -22,6 +68,7 @@
           </label>
 
           <input
+            v-model="pedidos"
             id="codigoPedido"
             name="codigoPedido"
             type="text"
@@ -35,6 +82,7 @@
           </label>
 
           <input
+            v-model="pedidos"
             id="nomeCliente"
             name="nomeCliente"
             type="text"
@@ -52,12 +100,14 @@
       <h2 id="adicionar-produto">Adicionar produto</h2>
 
       <div class="form-grid form-grid-product">
+
         <div class="form-group">
           <label for="nomeProduto">
             Produto
           </label>
 
           <input
+            v-model="pedido"
             id="nomeProduto"
             name="nomeProduto"
             type="text"
@@ -71,6 +121,7 @@
           </label>
 
           <input
+            v-model="pedido"
             id="precoUnitario"
             name="precoUnitario"
             type="number"
@@ -86,6 +137,7 @@
           </label>
 
           <input
+            v-model="pedido"
             id="quantidade"
             name="quantidade"
             type="number"
@@ -97,7 +149,11 @@
       </div>
 
       <div class="form-actions">
-        <button class="button button-primary" type="button">
+        <button 
+        class="button button-primary" 
+        type="button"
+        @click="pedido"
+        >
           Adicionar produto
         </button>
       </div>
@@ -116,7 +172,7 @@
       <!--
         O aluno deverá utilizar v-for para apresentar os produtos.
       -->
-      <div class="table-responsive">
+      <div class="table-responsive" >
         <table>
           <thead>
             <tr>
@@ -129,20 +185,17 @@
           </thead>
 
           <tbody>
-            <!--
-              Exemplo da estrutura que deverá ser repetida pelo aluno:
-
-              <tr>
-                <td>Nome do produto</td>
-                <td>Preço unitário</td>
-                <td>Quantidade</td>
-                <td>Total do item</td>
+              <tr v-for="pedido in pedidos">
+                <td>{{pedido}}</td>
+                <td>{{  }}</td>
+                <td>{{  }}</td>
+                <td>{{  }}</td>
                 <td>
                   <button type="button">Excluir</button>
                 </td>
               </tr>
-            -->
           </tbody>
+
         </table>
       </div>
 
